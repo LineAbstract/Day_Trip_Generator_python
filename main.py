@@ -48,8 +48,67 @@ def trip_gen_start():
 trip_gen_start()
 
 # random pickers
+trip_complete = False
+def dest_picker():
+    while gen_start == True and trip_complete == False:
+        random_dest = random.choice(destination_list)
+        user_choice = input(f"~~~~~\nFor your trip destination how about {random_dest}! Do you like this option? Enter yes/no: ")
+        if user_choice == "yes" or user_choice == "Yes":
+            print(f"{random_dest} is a great choice! Onto restaurants.")
+            return random_dest
+        elif user_choice == "no" or user_choice == "No":
+            print("Let's try another destination.")
+        else:
+            input("Not quite sure what you mean. Enter yes/no next time.")
+
+def rest_picker():
+    while gen_start == True and trip_complete == False:    
+        random_rest = random.choice(restaurant_list)
+        user_choice = input(f"~~~~~\nHow about a lovely meal at {random_rest}? Enter yes/no: ")
+        if user_choice == "yes" or user_choice == "Yes":
+            print(f"Eating at {random_rest} will provide a fine dining experience! Your mode of transport is next!")
+            return random_rest
+        elif user_choice == "no" or user_choice == "No":
+            print("Let's try another dining experience.")
+        else:
+            input("Not quite sure what you mean. Enter yes/no next time.")
+            
+def tran_picker():
+    while gen_start == True and trip_complete == False:
+        random_tran = random.choice(transportation_list)
+        user_choice = input(f"~~~~~\nWould you like to get to your destination through {random_tran}? Enter yes/no: ")
+        if user_choice == "yes" or user_choice == "Yes":
+            print(f"A trip by {random_tran} will be a safe, fun and quick way to get your destination! Your nightly entertainment is next!")
+            return random_tran
+        elif user_choice == "no" or user_choice == "No":
+            print("Let's try a different vehicle.")
+        else:
+            input("Not quite sure what you mean. Enter yes/no next time.")
+
+def entr_picker():
+    while gen_start == True and trip_complete == False:
+        random_entr = random.choice(entertainment_list)
+        user_choice = input(f"~~~~~\nHow about a fun activity like {random_entr}? Enter yes/no: ")
+        if user_choice == "yes" or user_choice == "Yes":
+            print(f"We're certain you'll have fun with {random_entr}!")
+            return random_entr
+        elif user_choice == "no" or user_choice == "No":
+            print("Let's try another experience.")
+        else:
+            input("Not quite sure what you mean. Enter yes/no next time.")
 
 # trip picker function
+def trip_picker():
+    global dest_picked
+    dest_picked = dest_picker()
+    global rest_picked
+    rest_picked = rest_picker()
+    global tran_picked
+    tran_picked = tran_picker()
+    global entr_picked
+    entr_picked = entr_picker()
+    print(f"~~~~~\nHere are your selections! Your day trip is set in {dest_picked} where you'll get there by {tran_picked}. \nWhile there, you'll enjoy a lovely meal at {rest_picked} and your activity of choice is {entr_picked}.")
+trip_picker()
 
 # trip dictionary
 
