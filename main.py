@@ -111,5 +111,14 @@ def trip_picker():
 trip_picker()
 
 # trip dictionary
+complete_trip = {dest_picked, rest_picked, tran_picked, entr_picked}
 
 # trip complete?
+while trip_complete != True:
+    user_satisfied = input(f"~~~~~\nAre you happy with all of the trip selections? Enter yes/no: ")
+    if user_satisfied == "yes":
+        trip_complete = True
+        print("~~~~~\nThank you for using this trip generator. Have a great time on your special day trip!")
+    else: 
+        print("Ok, let's try this again!")
+        trip_picker()
